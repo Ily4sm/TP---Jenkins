@@ -20,6 +20,20 @@ pipeline {
             }
         }
 
+        stage('SonarQube Analysis') {
+            steps {
+                withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
+                    sh '''
+                    mvn sonar:sonar \
+                      -Dsonar.projectKey=jenkins-demo-app \
+                      -Dsonar.projectName=jenkins-demo-app \
+                      -Dsonar.host.url=SONAR_URL \
+                      -Dsonar.token=$SONAR_TOKEN
+                    '''
+                }
+            }
+        }
+
         stage('Package') {
             steps {
                 sh 'mvn package'
