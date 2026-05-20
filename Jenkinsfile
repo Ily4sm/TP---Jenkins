@@ -27,7 +27,7 @@ pipeline {
                     mvn sonar:sonar \
                       -Dsonar.projectKey=jenkins-demo-app \
                       -Dsonar.projectName=jenkins-demo-app \
-                      -Dsonar.host.url=https://symmetrical-space-lamp-975p7p4xwxpr276q4-9000.app.github.dev \
+                      -Dsonar.host.url=http://sonarqube:9000 \
                       -Dsonar.token=$SONAR_TOKEN
                     '''
                 }
