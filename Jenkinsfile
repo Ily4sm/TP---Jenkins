@@ -22,7 +22,7 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
+                withCredentials([string(credentialsId: 'sonar-tocken', variable: 'SONAR_TOKEN')]) {
                     sh '''
                     mvn sonar:sonar \
                       -Dsonar.projectKey=jenkins-demo-app \
